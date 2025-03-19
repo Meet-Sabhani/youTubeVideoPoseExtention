@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Auto Pause",
+  "version": "1.0",
+  "description": "Pauses YouTube video when you switch tabs.",
+  "permissions": ["tabs", "activeTab", "storage", "scripting"],
+  "host_permissions": ["*://www.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "youtube.png"
+  }
+}
