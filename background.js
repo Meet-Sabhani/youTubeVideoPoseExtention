@@ -1,4 +1,11 @@
-chrome.tabs.onActivated.addListener(async (activeInfo) => {
+chrome.tabs.onActivated.addListener(pauseYouTube);
+chrome.windows.onFocusChanged.addListener((windowId) => {
+  if (windowId === chrome.windows.WINDOW_ID_NONE) {
+    pauseYouTube();
+  }
+});
+
+async function pauseYouTube() {
   const { enabled } = await chrome.storage.local.get("enabled");
   if (!enabled) return;
 
@@ -13,7 +20,7 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
         .catch((err) => console.error("Error executing script:", err));
     }
   }
-});
+}
 
 function pauseVideo() {
   const video = document.querySelector("video");

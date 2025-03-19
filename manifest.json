@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "YouTube Auto Pause",
   "version": "1.0",
-  "description": "Pauses YouTube video when you switch tabs.",
+  "description": "Pauses YouTube video when you switch tabs or minimize the browser.",
   "permissions": ["tabs", "activeTab", "storage", "scripting"],
   "host_permissions": ["*://www.youtube.com/*"],
   "background": {
