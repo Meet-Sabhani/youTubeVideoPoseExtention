@@ -1,30 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YouTube Auto Pause</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 10px;
-      }
-      h2 {
-        margin: 0;
-        font-size: 16px;
-      }
-      .toggle-container {
-        display: flex;
-        align-items: center;
-      }
-      .toggle-label {
-        margin-left: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h2>YouTube Auto Pause</h2>
-    <div class="toggle-container">
-      <input type="checkbox" id="toggle" />
-      <label class="toggle-label" for="toggle">Enable</label>
+    <div class="container">
+      <h2>YouTube Auto Pause</h2>
+      <p class="description">
+        Automatically pauses YouTube videos when you switch tabs or minimize the
+        browser.
+      </p>
+      <div class="toggle-container">
+        <input type="checkbox" id="toggle" />
+        <label for="toggle" class="toggle-label">Enable Auto Pause</label>
+      </div>
     </div>
     <script src="popup.js"></script>
   </body>

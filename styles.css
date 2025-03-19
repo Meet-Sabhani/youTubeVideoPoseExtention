@@ -1,0 +1,94 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #181818;
+  color: #e0e0e0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.description {
+  font-size: 14px;
+  color: #a1a1a1;
+  text-align: center;
+  margin-bottom: 20px;
+  max-width: 280px;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+input[type="checkbox"] {
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: #444;
+  position: relative;
+  appearance: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #4caf50;
+}
+
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked:before {
+  transform: translateX(25px);
+}
+
+.toggle-label {
+  color: #e0e0e0;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Animation for smoother transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Make sure everything fades in smoothly */
+.container {
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
