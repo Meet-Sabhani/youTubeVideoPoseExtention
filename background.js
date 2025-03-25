@@ -4,15 +4,21 @@ chrome.runtime.onInstalled.addListener(async () => {
 
 // Detect when the user switches apps (Alt+Tab, Windows+D)
 chrome.windows.onFocusChanged.addListener(async (windowId) => {
-  const { enabled } = await chrome.storage.local.get(["enabled"]);
+  const { enabled, wasPlaying } = await chrome.storage.local.get(["enabled", "wasPlaying"]);
   if (!enabled) return;
 
   if (windowId === chrome.windows.WINDOW_ID_NONE) {
-    await pauseYouTube(); // Pause when switching apps or minimizing
+    // User switched away from Chrome
+    await pauseYouTube();
   } else {
-    await checkAndResumeYouTube(); // Resume when returning to Chrome
+    // Check if the active tab is YouTube before resuming
+    const tabs = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+    if (tabs.length > 0 && tabs[0].url.includes("youtube.com/watch") && wasPlaying) {
+      await checkAndResumeYouTube();
+    }
   }
 });
+
 
 // Detect when user changes tabs
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
